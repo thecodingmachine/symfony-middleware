@@ -73,5 +73,7 @@ class SymfonyMiddleware implements HttpKernelInterface, TerminableInterface
     public function terminate(Request $request, Response $response)
     {
         $this->symfonyApp->terminate($request, $response);
+        $this->symfonyApp->shutdown();
+        $this->initDone = false;
     }
 }
